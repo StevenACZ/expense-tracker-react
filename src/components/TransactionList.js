@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { TransactionItem } from './TransactionItem';
 
@@ -20,5 +20,5 @@ export const TransactionList = () => {
         }
       </ul>
     </>
-  )
-}
+  );
+};

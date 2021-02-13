@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
 export const TransactionItem = ({ id, text, amount }) => {
@@ -17,5 +17,5 @@ export const TransactionItem = ({ id, text, amount }) => {
         x
       </button>
     </li>
-  )
-}
+  );
+};

@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 
 export const AddTransaction = () => {
 
-  const [text, setText] = useState('');
-  const [amount, setAmount] = useState(0);
+  const { createTransaction } = useContext( GlobalContext );
+
+  const [ text, setText ] = useState( '' );
+  const [ amount, setAmount ] = useState( 0 );
+
+  const handleSubmit = ( e ) => {
+    e.preventDefault();
+
+    createTransaction( text, amount );
+
+    setText('');
+    setAmount(0);
+  };
 
   return (
     <>
       <h3>Add new transaction</h3>
-      <form id="form">
+      <form id="form" onSubmit={ handleSubmit }>
         <div className="form-control">
           <label htmlFor="text">Text</label>
           <input
@@ -28,12 +40,16 @@ export const AddTransaction = () => {
             type="number"
             id="amount"
             value={ amount }
-            onChange={ e => setAmount( e.target.value ) }
+            onChange={ e => setAmount( parseInt(e.target.value) ) }
             placeholder="Enter amount..."
           />
         </div>
-        <button className="btn">Add transaction</button>
+        <button
+          className="btn"
+        >
+          Add transaction
+        </button>
       </form>
     </>
-  )
-}
+  );
+};
