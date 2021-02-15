@@ -11,7 +11,12 @@ export const AddTransaction = () => {
   const handleSubmit = ( e ) => {
     e.preventDefault();
 
-    createTransaction( text, amount );
+    const transaction = {
+      text: text,
+      amount: amount
+    }
+
+    createTransaction( transaction );
 
     setText('');
     setAmount(0);
